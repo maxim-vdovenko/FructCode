@@ -1,0 +1,86 @@
+.path {
+     .block();
+     padding: 32px 0px 0px 30px;
+     
+     @media (max-width: @screen_lg) {
+          padding-left: 15px;
+     }
+     @media (max-width: @screen_md) {
+          padding-left: 0px;
+     }
+     @media (max-width: @screen_sm) {
+          padding-top: 25px;
+     }
+     
+     .container-fluid {
+          min-height: 40px;
+          
+          @media (max-width: @screen_sm) {
+               min-height: inherit;
+          }
+     }
+     
+     &-list {
+          .inline_block();
+          
+          li {
+               .inline_block();
+               margin: 0px 6px 7px 0px;
+               
+               @media (max-width: @screen_sm) {
+                    margin: 0px 5px 5px 0px;
+               }
+               &:before {
+                    .inline_block();
+                    content: '/';
+                    font-size: 10px;
+                    color: #757575;
+                    margin: 1px 8px 0px 0px;
+                    
+                    @media (max-width: @screen_sm) {
+                         font-size: 8px;
+                         margin: 1px 7px 0px 0px;
+                    }
+               }
+               &:first-child {
+                    &:before {
+                         display: none;
+                    }
+               }
+               &:last-child {
+                    margin-right: 0px;
+               }
+          }
+          a, span {
+               .inline_block();
+               text-decoration: none;
+               font-size: 12px;
+               text-transform: uppercase;
+               color: #757575;
+               
+               @media (max-width: @screen_sm) {
+                    font-size: 10px;
+               }
+          }
+          a {
+               text-decoration: underline;
+               
+               &:hover {
+                    text-decoration: none;
+               }
+          }
+     }
+     
+     .btn-print {
+          float: right;
+          margin-right: 40px;
+          
+          @media (max-width: @screen_md) {
+               margin-right: 0px;
+          }
+          @media (max-width: @screen_sm) {
+               float: none;
+               margin: 5px 0px 15px 0px;
+          }
+     }
+}

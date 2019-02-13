@@ -1,0 +1,251 @@
+* {
+     @include sizing();
+     margin: 0px; 
+     padding: 0px;
+     outline:none;
+    -webkit-appearance: none;
+     font-family: OpenSans, sans-serif;
+     font-weight: 400;
+     line-height: 1;
+}
+
+body{
+     background-color: $fonColor;
+     color: $color_main;
+}
+html, body {
+     height: 100%;
+}
+
+input, textarea, select, button {
+     @include radius();
+     outline: none;
+}
+form {
+     @include block();
+}
+img {
+     @include inline_block(); 
+     border: none; 
+}
+a {
+     @include inline_block(); 
+     text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+     font-weight: normal;
+}
+
+
+
+
+.total-container {
+     @include block();
+     min-height: 100%;
+     min-width: $screen_min;
+}
+
+.container-fluid {
+     position: relative;
+     max-width: $screen-lg;
+}
+
+
+
+/* .titleBox --------------------------------------------*/
+.titleBox {
+     @include block();
+     // @include b();
+
+     h1, h2 {
+          @include block();
+          font-size: 26px;
+          font-weight: 500;
+          
+     }
+     h5 {
+          @include block();
+     }
+     p {
+          @include block();
+          font-size: 14px;
+          line-height: 18px;
+         // color: red;
+          
+          b {
+               @include inline_block(); 
+               font-size: inherit;
+               line-height: inherit;
+               color: inherit;
+          }
+     }
+}
+
+
+
+/* .button ----------------------------------------------*/
+.button {
+     @include inline_block(top, center); 
+     @include gradient($gradient_orange_before, $gradient_orange_from, 1);
+     @include shadow(0px, 0px, 10px, 0px, rgba(248,76,13, .35));
+     min-width: 225px;
+     min-height: 41px;
+     padding: 11px 50px;
+     font-size: 16px;
+     font-weight: 500;
+     line-height: 18px;
+     color: #fafafa;
+
+     &:hover {
+          @include gradient($gradient_orange_from, $gradient_orange_before, 1);
+     }
+     &:active {
+          @include gradient($gradient_orange_before, $gradient_orange_before, 1);
+     }
+     
+     &--blue {
+          @include gradient($gradient_blue_before, $gradient_blue_from, 1);
+          @include shadow(0px, 0px, 10px, 0px, rgba(48,48,56, .35));
+          
+          &:hover {
+               @include gradient($gradient_blue_from, $gradient_blue_before, 1);
+          }
+          &:active {
+               @include gradient($gradient_blue_before, $gradient_blue_before, 1);
+          }
+     }
+     
+     &--emptyWhite {
+          @include gradient(transparent, transparent, -1);
+          @include shadow(0px, 0px, 0px, 2px, #fff, 1);
+          min-width: 156px;
+          min-height: 34px;
+          padding: 9px 25px;
+          font-size: 14px;
+          line-height: 16px;
+          
+          &:hover {
+               @include shadow_none();
+          }
+          &:active {
+               @include shadow_none();
+          }
+     }
+     
+     &-video {
+          @include inline_block(); 
+          @include radius(1000px);
+          @include transition_Own(all);
+          @include gradient($gradient_purple_from, $gradient_purple_before, 1);
+          @include shadow(0px, 0px, 18px, 0px, rgba(0,0,0, .4));
+          padding: 4px;
+          cursor: pointer;
+          
+          &:before {
+               @include block(); 
+               @include radius(1000px);
+               @include gradient($gradient_blue_from, $gradient_blue_before, 1);
+               @include size(72px, 72px); 
+               content: '';
+          }
+          &:after {
+               @include position(absolute, 50%, 50%, 24px, 30px);
+               @include image('icon-play.png');
+               content: '';
+               margin: -15px 0px 0px -9px;
+          }
+          
+          &:hover {
+               // @include gradient($gradient_purple_before, $gradient_purple_from, 1);
+               @include shadow(0px, 0px, 20px, 0px, rgba(0,0,0, .5));
+               
+               &:before {
+                    @include gradient($gradient_blue_before, $gradient_blue_from, 1);
+               }
+          }
+          &:active {
+               // @include gradient($gradient_purple_from, $gradient_purple_from, 1);
+               
+               &:before {
+                    @include gradient($gradient_blue_before, $gradient_blue_before, 1);
+               }
+          }
+     }
+}
+
+
+
+/* .social-networks -------------------------------------*/
+.social-networks {
+     @include inline_block(); 
+     
+     li {
+          @include inline_block(); 
+          margin-left: 7px;
+          
+          &:first-child {
+               margin-left: 0px;
+          }
+          
+          a {
+               @include block(); 
+               @include radius(1000px);
+               @include gradient($gradient_purple_from, $gradient_purple_before, 1);
+               padding: 4px;
+               cursor: pointer;
+               
+               &:before {
+                    @include block(); 
+                    @include transition_Own(background);
+                    @include radius(1000px);
+                    @include size(30px, 30px); 
+                    background-color: #282737;
+                    content: '';
+               }
+               
+               &:after {
+                    @include position(absolute, 0px, 0px, 100%, 100%);
+                    @include image('icon-social-networks.png');
+                    content: '';
+               }
+               
+               &.net-vk:after {
+                    background-position: 9px 14px;
+               }
+               &.net-fb:after {
+                    background-position: -36px 11px;
+               }
+               &.net-yt:after {
+                    background-position: -90px 13px;
+               }
+               &.net-in:after {
+                    background-position: -139px 11px;
+               }
+
+               &:hover {
+                    @include gradient($gradient_purple_from, $gradient_purple_before, 0);
+                    
+                    &:before {
+                         background-color: transparent;
+                    }
+                    &.net-vk:after {
+                         background-position: 9px -36px;
+                    }
+                    &.net-fb:after {
+                         background-position: -36px -39px;
+                    }
+                    &.net-yt:after {
+                         background-position: -90px -37px;
+                    }
+                    &.net-in:after {
+                         background-position: -139px -39px;
+                    }
+               }
+               &:active {
+                    // @include gradient(transparent, transparent, -1);
+                    // background-color: $gradient_purple_before;
+               }
+          }
+     }
+}
+

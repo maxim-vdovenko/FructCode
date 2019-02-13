@@ -1,0 +1,239 @@
+.header {
+     @include block(); 
+     @include shadow(0px, 0px, 20px, 0px, rgba(0,0,0, .2));
+     height: $header_height;
+     background-color: $fonColor;
+     z-index: 1;
+     
+     .row {
+
+          > div {
+               // @include b(); 
+          }
+     }
+     
+     &-elements {
+          @include block(right); 
+          white-space: nowrap;
+     }
+     
+     &-button {
+          @include inline_block(); 
+          //@include b(); 
+     }
+}
+
+
+
+/* .logo ------------------------------------------------*/
+.logo {
+     @include inline_block(); 
+     margin-top: 9px;
+     
+     @media (max-width: $screen-md) {
+          margin-top: 16px;
+          
+          img {
+               width: 120px;
+          }
+     }
+}
+
+
+
+/* .menu ------------------------------------------------*/
+.menu {
+     @include inline_block(); 
+     padding-right: 48px;
+     
+     @media (max-width: $screen-md) {
+          padding-right: 20px;
+     }
+     
+     li {
+          @include inline_block(); 
+          margin-left: 20px;
+          
+          @media (max-width: $screen-md) {
+               margin-left: 5px;
+          }
+          
+          &:first-child {
+               margin-left: 0px;
+          }
+          a {
+               @include inline_block(top, center); 
+               @include transition_Own(all, 0.2s);
+               height: $header_height + 1;
+               font-size: 14px;
+               color: $color_main;
+               padding: 20px 0px 0px 0px;
+               
+               @media (max-width: $screen-md) {
+                    font-size: 13px;
+                    padding-top: 21px;
+               }
+               
+               &:before {
+                    @include position(absolute, 50%, auto, 0px, 3px);
+                    @include gradient($gradient_blue_from, $gradient_blue_before, 1);
+                    @include transition_Own(all, 0.4s);
+                    bottom: 0px;
+                    content: '';
+               }
+               &:after {
+                    @include block(); 
+                    content: attr(title);
+                    font-weight: bold;
+                    height: 0;
+                    overflow: hidden;
+                    visibility: hidden;
+               }
+               &:hover {
+                    color: $color_menu_hover;
+                    font-weight: 700;
+                    
+                    &:before {
+                         left: 0px;
+                         width: 100%;
+                    }
+               }
+          }
+          
+          &.active a {
+               color: $color_menu_hover;
+               font-weight: 700;
+               
+               &:before {
+                    left: 0px;
+                    width: 100%;
+               }
+          }
+     }
+}
+
+
+
+/* .basketBox -------------------------------------------*/
+.basketBox {
+     @include inline_block(); 
+     @include size(26px, 18px); 
+     @include image('icon-basket.png');
+     margin: 19px 0px 0px 0px;
+     cursor: pointer;
+     
+     &__number {
+          @include radius(1000px); 
+          @include gradient($gradient_blue_from, $gradient_blue_before, 1);
+          position: absolute;
+          top: -6px;
+          left: 20px;
+          min-width: 14px;
+          height: 14px;
+          text-align: center;
+          font-size: 8px;
+          color: $color_white;
+          padding: 3px 3px 0px 3px;
+     }
+}
+
+
+
+/* .xpBox -----------------------------------------------*/
+.xpBox {
+     @include inline_block(); 
+     @include gradient($gradient_blue_from, $gradient_blue_before, 1);
+     padding: 2px;
+     margin: 14px 0px 0px 45px;
+     
+     @media (max-width: $screen-md) {
+          margin-left: 20px;
+     }
+     
+     span {
+          @include inline_block(top, center); 
+          min-width: 46px;
+          height: 24px;
+          background-color: $fonColor;
+          font-size: 10px;
+          line-height: 12px;
+          padding: 6px 4px 0px 4px;
+     }
+}
+
+
+
+/* .accountUser -----------------------------------------*/
+.accountUser {
+     @include inline_block(); 
+     margin: 8px 0px 0px 15px;
+     
+     @media (max-width: $screen-md) {
+          margin-left: 10px;
+     }
+     
+     &__img {
+          @include inline_block(); 
+          @include radius(1000px);
+          @include gradient($gradient_purple_from, $gradient_purple_before, 1);
+          padding: 2px;
+          
+          > img {
+               @include inline_block(); 
+               @include radius(1000px);
+               width: 36px;
+               height: auto;
+          }
+     }
+     
+     &__button {
+          @include inline_block(); 
+          font-size: 13px;
+          padding-right: 22px;
+          cursor: pointer;
+          margin: 13px 0px 0px 5px;
+          
+          @media (max-width: $screen-md) {
+               font-size: 12px;
+               padding-right: 20px;
+               margin-left: 4px;
+          }
+          
+          &:after {
+               @include position(absolute, auto, 4px, 13px, 7px);
+               @include image('icon-arrow.png');
+               @include transition_Own(transform);
+               content: '';
+               right: 0px;
+               
+               @media (max-width: $screen-md) {
+                    top: 3px;
+               }
+          }
+          &:hover {
+               
+               &:after {
+                    background-position: 0px -50px;
+               }
+          }
+     }
+     
+     &__window {
+          position: absolute;
+          display: none;
+          
+          &Cont {
+               @include block(); 
+          }
+     }
+     
+     &.active {
+          .accountUser__window {
+               display: block;
+          }
+     }
+}
+
+
+
+

@@ -1,0 +1,162 @@
+.hFooter {
+     height: $footer_height;
+}
+
+.footer {
+     @include block();
+     height: $footer_height;
+     margin-top: -$footer_height;
+     min-width: $screen_min;
+     background-color: #282737;
+     overflow: hidden;
+     
+     .container-fluid {
+          height: 100%;
+          z-index: 1;
+     }
+     
+     &:before {
+          @include block();
+          @include gradient($gradient_blue_from, $gradient_blue_before, 1);
+          @include shadow(0px, 3px, 16px, 0px, rgba(0,0,0, .65));
+          height: 16px;
+          content: '';
+          z-index: 2;
+     }
+     &:after {
+          @include position(absolute, 0px, auto, 100%, 96px);
+          bottom: 0px;
+          content: '';
+          background-color: #262532;
+     }
+     
+     &-logo {
+          @include inline_block(); 
+          margin-top: 42px;
+     }
+     
+     &-info {
+          @include block(); 
+          max-width: 235px;
+          margin-top: 34px;
+          
+          li {
+               @include block(); 
+               font-size: 14px;
+               line-height: 18px;
+               color: $footer_color;
+               margin-bottom: 15px;
+               
+               &:last-child {
+                    margin-bottom: 0px;
+               }
+          }
+     }
+     
+     &-location {
+          @include inline_block(); 
+          @include image('icon-planet.png', left 10px center);
+          height: 34px;
+          border: 2px solid #444c5c;
+          padding: 8px 11px 0px 50px;
+          margin-top: 25px;
+          font-size: 14px;
+          color: $footer_color;
+     }
+     
+     &-title {
+          @include block(); 
+          font-size: 24px;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: $footer_color;
+          margin-top: 50px;
+     }
+     
+     &-menu {
+          @include block(); 
+          margin-top: 42px;
+          
+          li {
+               @include block(); 
+               margin-bottom: 26px;
+               
+               &:last-child {
+                    margin-bottom: 0px;
+               }
+               
+               a {
+                    @include inline(); 
+                    @include transition_Own(color);
+                    font-size: 16px;
+                    line-height: 18px;
+                    color: $footer_color;
+                    
+                    &:hover {
+                         color: $footer_color_hover;
+                    }
+               }
+          }
+     }
+     
+     &-copyright {
+          position: absolute;
+          bottom: 56px;
+          font-size: 14px;
+          line-height: 16px;
+          color: $footer_color;
+          z-index: 1;
+     }
+     
+     &__pattern-left, &__pattern-right {
+          position: absolute;
+          top: 0px;
+          height: 100%;
+          z-index: 1;
+     }
+
+     &__pattern-left {
+          @include image('pattern-footer-left.png');
+          width: 420px;
+          left: 0px;
+     }
+     
+     &__pattern-right {
+          @include image('pattern-footer-right.png');
+          width: 280px;
+          right: 0px;
+     }
+}
+
+
+
+/* .writeUs ---------------------------------------------*/
+.writeUs {
+     @include block(); 
+     @include image('krokozavr.png', 0px 28px);
+     margin-top: 59px;
+     padding-left: 23px;
+
+     &__title {
+          @include block(); 
+          // @include b(); 
+          min-height: 38px;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 18px;
+          color: $color_white;
+          margin-bottom: 5px;
+     }
+     
+     &__info {
+          @include block(); 
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 18px;
+          color: $color_white;
+          margin-top: 31px;
+          margin-bottom: 11px;
+     }
+}
+
+

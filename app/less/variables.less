@@ -1,0 +1,87 @@
+@path_img: '../img/';
+@page_min: 320px; 
+
+@screen-const: 1px;
+@fonColor: #fff;
+
+@radius: 5px;
+@time: 0.15s;
+
+
+// Размеры для @media. 
+@screen_lg: (@screen-lg - 1);
+@screen_md: (@screen-md - 1);
+@screen_sm: (@screen-sm - 1);
+@screen_xs: (@screen-xs - 1);
+
+
+@conditions_time_open: 0.4s;
+@conditions_time_circle: 0.25s;
+@conditions_color_empty: #e1e1e1;
+
+
+// Высота блока корзины на главной странице.  
+@cartBlock_height: 52px; 
+@cartBlockTotal_height: 52px;
+
+@table_color_default: #f1f1f1; 
+
+// Массив цветов для таблиц на главной. 
+@table_color: #63ce72, #0fbbb5, #1bab9d, #62cea9; 
+
+.table_width_1 {
+     width: 35%; 
+     
+     @media (max-width: @screen_xs) {
+          width: 67%; 
+     }
+} 
+.table_width_2 {
+     width: 17%; 
+} 
+.table_width_3 {
+     width: 16%; 
+     
+     @media (max-width: @screen_xs) {
+          width: 11%; 
+     }
+} 
+.table_width_4 {
+     width: 16%; 
+     
+     @media (max-width: @screen_xs) {
+          width: 11%; 
+     }
+} 
+.table_width_5 {
+     width: 16%; 
+     
+     @media (max-width: @screen_xs) {
+          width: 11%; 
+     }
+} 
+
+
+
+@footer_height: 130px;
+@footer_height_sm: 245px;
+@footer_height_xs: 260px;
+
+
+@Ubuntu: 'Ubuntu';
+@Ubuntu_Regular: 'Ubuntu-Regular';
+@Ubuntu_Medium: 'Ubuntu-Medium';
+@Ubuntu_Bold: 'Ubuntu-Bold';
+@Ubuntu_Light: 'Ubuntu-Light';
+
+@Muller: 'Muller';
+@Muller_Light: 'Muller-Light';
+@Muller_Medium: 'Muller-Medium';
+@Muller_Bold: 'Muller-Bold';
+
+@PTRouble: 'PTRouble';
+@PTRouble_Sans: 'PTRouble-Sans';
+
+@fonts_path: '../fonts/';
+@font_main: sans-serif;
+@font_home: @Ubuntu_Regular;

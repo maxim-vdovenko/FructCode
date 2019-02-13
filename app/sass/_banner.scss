@@ -1,0 +1,122 @@
+.banner {
+     @include block(); 
+     @include shadow(0px, 0px, 6px, 3px, rgba(40,81,204, .4));
+     height: 445px;
+     
+     @media (max-width: $screen-md) {
+     //@media screen and (max-width: $screen-md) { 
+          height: 600px;
+     }
+     
+     
+     &__fon {
+          @include position(absolute, 0px, 0px, 100%, 100%);
+          overflow: hidden;
+          
+          img {
+               @include inline_block(top, center);
+               @include transform_translate(-50%, -50%);
+               top: 50%;
+               left: 50%;
+               width: auto;
+               height: auto;
+               max-width: none;
+               max-height: none;
+               min-width: 100%;
+               min-height: 100%;
+          }
+     }
+     
+     &__cont {
+          @include block();
+     }
+     
+     &__band {
+          @include gradient(rgba(98,84,227, .8), rgba(75,83,218, 1));
+          @include position(absolute, 0px, auto, 100%, 102px);
+          bottom: 0px;
+     }
+     
+     &-info {
+          @include block(); 
+          padding-left: 54px;
+          margin-top: 29px;
+          
+          &__icon {
+               @include position(absolute, 0px, 0px, 44px, 44px);
+               @include shadow(0px, 0px, 18px, 0px, rgba(48,48,56, .5));
+               @include radius(1000px);
+               @include gradient($gradient_purple_from, $gradient_purple_before, 1);
+               @include flex();
+            
+               &:before {
+                    @include position(absolute, 50%, 50%, 36px, 36px);
+                    @include radius(1000px);
+                    @include gradient($gradient_blue_from, $gradient_blue_before, 1);
+                    content: '';
+                    margin: -18px 0px 0px -18px;
+               }
+               &:after {
+                    @include position(absolute, 0px, 0px, 100%, 100%);
+                    content: '';
+               }
+               img {
+                    margin: auto;
+               }
+          }
+          &__number {
+               @include block(); 
+               color: $color_white;
+               font-size: 22px;
+               font-weight: 700;
+               white-space: nowrap;
+          }
+          &__text {
+               @include block(); 
+               color: $color_white;
+               font-size: 14px;
+               line-height: 16px;
+               margin-top: 4px;
+          }
+          
+          &--pass {
+               .banner-info__icon:after {
+                    @include image('banner/icon-1.png', center top 12px);
+               }
+          }
+          &--video {
+               .banner-info__icon:after {
+                    @include image('banner/icon-2.png', left 17px center);
+               }
+          }
+          &--task {
+               .banner-info__icon:after {
+                    @include image('banner/icon-3.png', left 14px center);
+               }
+          }
+          &--reviews {
+               .banner-info__icon:after {
+                    @include image('banner/icon-4.png', center);
+               }
+          }
+     }
+     
+     .titleBox {
+          padding: 50px 0px 0px 45px;
+          
+          h2 {
+               font-size: 36px;
+               line-height: 40px;
+               margin-bottom: 20px;
+          }
+          p {
+               font-size: 16px;
+               line-height: 22px;
+          }
+          .button {
+               margin-top: 20px;
+          }
+     }
+}
+
+
